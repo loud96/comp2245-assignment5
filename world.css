@@ -63,33 +63,15 @@ h2 {
 }
 #result {
     margin: 0 7em;
-    text-align: start;
     margin-top: 20px;
     /* background-color: gray; */
-    justify-self: center;
 
-}
-
-
-#name, #headofstate {
-    text-transform: uppercase;
-    margin: 2px auto;
 }
 
 .name {
     color: teal;
     padding-top: 20px;
     font-size: large;
-}
-
-p {
-
-    padding-top: 15px;
-    padding-right: 8em;
-}
-li {
-    list-style-type: none;
-    line-height: 40px;
 }
 
 .not-found {
@@ -100,3 +82,24 @@ li {
     font-weight: bold;
     text-align: center;
 }
+
+table, th, td {
+    text-align: center;
+    border-bottom: 1px solid;
+}
+th {
+    /* text-transform: uppercase; */
+    height: 70px;
+    background-color: rgb(113, 179, 179);
+}
+td {
+    padding: 15px 0;
+}
+
+table {
+    border: 1px solid;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
