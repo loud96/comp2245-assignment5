@@ -1,3 +1,3 @@
 # comp2245-assignment5
 
-This is Assignment 5 for Louetta Daly
+This is Assignment 5 for Louetta Daly on PHP and MySQL
