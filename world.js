@@ -1,18 +1,26 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    const btn = document.getElementById('lookup');
+    const btns = document.querySelectorAll('.btn');
     const searchInput = document.getElementById('country');
 
     //Add event listener to the lookup button
-    btn.addEventListener('click', (event) =>{
+    btns.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            const isCitiesLookup = button.id === 'cities';
+            buttonClick(event, isCitiesLookup);
+        });
+    });
+    function buttonClick(event, isCitiesLookup) {
         event.preventDefault(); //Prevent default action
 
         //Sanitize input for increased security
-        const saniQuery = santizeInput(searchInput.value);
+        const saniQuery = sanitizeInput(searchInput.value);
+
+        let link = `world.php?country=${saniQuery}${isCitiesLookup ? '&lookup=cities' : ''}`;
 
         //Create XMLHttpRequest object and open a GET request for php
         const req = new XMLHttpRequest();
-        const link = saniQuery ? `world.php?country=${saniQuery}` : 'world.php';
+        
         req.open("GET", link, true);
 
         //Set onload event handler
@@ -30,10 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
         };
         //Send request
         req.send();
-    });
+    }
 
     //Function to sanitize user input - Alphanumeric and whitespace only
-    function santizeInput(input) {
+    function sanitizeInput(input) {
         return input.replace(/[^a-zA-Z0-9\s]/g, '').trim();
     }
 });
